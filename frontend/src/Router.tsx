@@ -5,10 +5,12 @@ import Signup from "./components/signup/Signup";
 import Signin1 from "./components/signin/Signin1";
 import Signin2 from "./components/signin/Signin2";
 import Signin3 from "./components/signin/Signin3";
+import Header from "./components/common/Header";
 
 const Router = () => {
   return (
     <BrowserRouter>
+      <Header />
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/signup" element={<Signup/>} />
