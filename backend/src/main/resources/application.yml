@@ -10,3 +10,8 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
+
+jwt:
+  security:
+    access-key: ${ACCESS_KEY}
+    refresh-key: ${REFRESH_KEY}
