@@ -20,7 +20,7 @@ public class PostService {
         return post;
     }
 
-    public PostResponse findPostByPostId(Long postId) {
-        postRepository.
-    }
+//    public PostResponse findPostByPostId(Long postId) {
+//        postRepository.
+//    }
 }
