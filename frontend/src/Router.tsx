@@ -7,6 +7,7 @@ import Signin1 from "./components/signin/Signin1";
 import Signin2 from "./components/signin/Signin2";
 import Signin3 from "./components/signin/Signin3";
 import Header from "./components/common/header/Header";
+import ExperiencePage from "./pages/ExperiencePage";
 
 const Router = () => {
   return (
@@ -15,6 +16,7 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/mentor" element={<Mentoring />} />
+        <Route path="/experience" element={<ExperiencePage />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/signin1" element={<Signin1 />} />
         <Route path="/signin2" element={<Signin2 />} />
