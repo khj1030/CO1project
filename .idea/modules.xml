@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/co1project.iml" filepath="$PROJECT_DIR$/.idea/co1project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/daeda.main.iml" filepath="$PROJECT_DIR$/.idea/modules/daeda.main.iml" />
     </modules>
   </component>
 </project>
