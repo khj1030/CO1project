@@ -1,0 +1,56 @@
+package com.co1project.daeda.global.lib.jwt;
+
+import com.co1project.daeda.domain.user.domain.User;
+import com.co1project.daeda.domain.user.domain.repository.UserRepository;
+import com.co1project.daeda.global.properties.JwtProperties;
+import io.jsonwebtoken.JwtBuilder;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+@Component
+@RequiredArgsConstructor
+public class JwtProvider {
+    private final UserRepository userRepository;
+    private final JwtProperties jwtProperties;
+    private static final SignatureAlgorithm SIGNATURE_ALGORITHM = SignatureAlgorithm.HS256;
+
+    public String createToken(User user, TokenType type) {
+        String securityKey = "";
+
+        Date nowData = new Date();
+        Calendar expiredDate = Calendar.getInstance();
+        expiredDate.setTime(nowData);
+
+        if (type.equals(TokenType.ACCESS)) {
+            expiredDate.add(Calendar.DATE, 7);
+            securityKey = jwtProperties.getAccessKey();
+        }
+
+        if (type.equals(TokenType.REFRESH)) {
+            expiredDate.add(Calendar.DATE, 30);
+            securityKey = jwtProperties.getRefreshKey();
+        }
+
+        Map<String, Object> header = new HashMap<>();
+        header.put("typ", "JWT");
+        header.put("alg", SIGNATURE_ALGORITHM);
+
+        Map<String, Object> payload = new HashMap<>();
+        payload.put("userId", user.getUserId());
+
+        JwtBuilder jwtBuilder = Jwts.builder()
+                .setHeaderParams(header)
+                .setClaims(payload)
+                .setExpiration(expiredDate.getTime())
+                .signWith(SIGNATURE_ALGORITHM, securityKey);
+
+        return jwtBuilder.compact();
+    }
+}
