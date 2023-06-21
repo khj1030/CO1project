@@ -1,5 +1,6 @@
 import React, { Dispatch, SetStateAction } from "react";
 import * as S from "./ContentsBox.style";
+import LogoImg from "../../../asset/Logo.svg";
 
 const ContentsBox = ({
   setState,
@@ -9,7 +10,7 @@ const ContentsBox = ({
   return (
     <S.MainContainer onClick={() => setState(true)}>
       <S.ImageWrap>
-        <S.UserImage src="" alt="" />
+        <S.UserImage src={LogoImg} alt="" />
         <div>
           <S.NameElement>이름</S.NameElement>
           <S.YearSalesFont>연매출 1억</S.YearSalesFont>

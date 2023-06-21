@@ -17,6 +17,8 @@ export const ImageWrap = styled.div`
 
 export const UserImage = styled.img`
   margin-right: 1rem;
+  width: 3rem;
+  height: 4rem;
 `;
 
 export const NameElement = styled.p`
@@ -31,10 +33,12 @@ export const YearSalesFont = styled.p`
 `;
 
 export const PriceWrap = styled.span`
-  font-szie: 1.1rem;
+  font-size: 1.1rem;
   font-weight: 600;
   display: flex;
+  justify-content: center;
   align-items: center;
+  height: 3rem;
 `;
 
 export const PerTimes = styled.p`
