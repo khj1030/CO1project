@@ -1,10 +1,12 @@
 import React from "react";
 import * as S from "./ContentsBox.style";
 import LogoImg from "../../../asset/Logo.svg";
+import { useNavigate } from "react-router-dom";
 
-const ContentsBox = ({ isInPhoto }: { isInPhoto: boolean }) => {
+const ContentsBox = ({ isInPhoto, id }: { isInPhoto: boolean; id: number }) => {
+  const navigate = useNavigate();
   return (
-    <S.MainContainer>
+    <S.MainContainer onClick={() => navigate(`/experience/${id}`)}>
       {isInPhoto && <S.ImageArea url={LogoImg} />}
       <S.SubContainer>
         <S.Title>제목 제목 제목 제목 제목 제목 제목 제목 제목 제목 </S.Title>
