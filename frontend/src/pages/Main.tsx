@@ -1,11 +1,11 @@
 import React from "react";
 
-function App() {
+function Main() {
   return (
     <>
-      <div></div>
+      <div>gdg</div>
     </>
   );
 }
 
-export default App;
+export default Main;
