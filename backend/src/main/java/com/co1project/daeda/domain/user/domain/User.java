@@ -1,5 +1,6 @@
 package com.co1project.daeda.domain.user.domain;
 
+import com.co1project.daeda.domain.user.enums.Type;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -24,12 +25,15 @@ public class User {
 
     private String tel_number;
 
+    private Type type;
+
     @Builder
-    public User(String id, String password, String nickname, String email, String tel_number) {
+    public User(String id, String password, String nickname, String email, String tel_number, Type type) {
         this.id = id;
         this.password = password;
         this.nickname = nickname;
         this.email = email;
         this.tel_number = tel_number;
+        this.type = type;
     }
 }
