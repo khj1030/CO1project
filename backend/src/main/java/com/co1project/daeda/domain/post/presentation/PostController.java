@@ -1,0 +1,35 @@
+package com.co1project.daeda.domain.post.presentation;
+
+import com.co1project.daeda.domain.post.domain.Post;
+import com.co1project.daeda.domain.post.presentation.request.PostRegisterRequest;
+import com.co1project.daeda.domain.post.presentation.response.PostListResponse;
+import com.co1project.daeda.domain.post.service.PostService;
+import com.co1project.daeda.domain.user.domain.User;
+import com.co1project.daeda.global.annotation.CheckToken;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/api/post")
+@RequiredArgsConstructor
+public class PostController {
+    private final PostService postService;
+
+    @CheckToken
+    @PostMapping("/register")
+    @ResponseStatus(HttpStatus.OK)
+    public Post register(@RequestBody PostRegisterRequest request, @RequestAttribute User user) {
+        return postService.register(request, user);
+    }
+
+    @GetMapping()
+    public PostListResponse findPostByAll() {
+        return postService.findPostByAll();
+    }
+
+    @GetMapping("/{postId}")
+    public Post findPostByPostId(@PathVariable Long postId) {
+        return postService.findPostByPostId(postId);
+    }
+}
