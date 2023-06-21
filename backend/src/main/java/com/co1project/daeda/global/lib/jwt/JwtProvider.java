@@ -65,7 +65,7 @@ public class JwtProvider {
     public String extract(HttpServletRequest request, String type) {
         Enumeration<String> headers = request.getHeaders("Authorization");
 
-        whiㅍle (headers.hasMoreElements()) {
+        while (headers.hasMoreElements()) {
             String value = headers.nextElement();
             if (value.startsWith(type)) {
                 return value.substring(type.length()).trim();
