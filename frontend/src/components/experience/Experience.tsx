@@ -36,7 +36,7 @@ const Experience = () => {
       />
       <S.ListWrap>
         {array.map((v, i) => (
-          <ContentsBox isInPhoto={v !== ""} />
+          <ContentsBox isInPhoto={v !== ""} id={i} />
         ))}
       </S.ListWrap>
     </S.FormBody>
