@@ -1,7 +1,8 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Main from "./pages/Main";
-import Header from "./components/common/Header";
+import Mentoring from "./pages/MentoringPage";
+import Header from "./components/common/header/Header";
 
 const Router = () => {
   return (
@@ -9,6 +10,7 @@ const Router = () => {
       <Header />
       <Routes>
         <Route path="/" element={<Main />} />
+        <Route path="/mentor" element={<Mentoring />} />
       </Routes>
     </BrowserRouter>
   );
