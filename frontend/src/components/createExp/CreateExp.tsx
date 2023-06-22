@@ -20,12 +20,13 @@ const CreateExp = () => {
         { title: title, body: markdown },
         {
           headers: {
-            Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2ODc5OTQ2MjYsInVzZXJJZCI6MX0.LxMd3SglYwLarG-9cdFxmUekdNXAl7kqxXVWkaz80Lw`,
+            Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2ODgwMTIzNjQsInVzZXJJZCI6Mn0.pygcaqnnSEvBGMFN_OrQ8j0NclCEoJaV__ddqwaUhak`,
           },
         }
       )
-        .then((e) => console.log(e))
-        .catch((e) => console.log(e));
+        .then((_) => alert("게시물이 올라갔습니다."))
+        .catch((_) => {});
+
       naviagte("/experience");
     }
   };
