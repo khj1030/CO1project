@@ -10,6 +10,7 @@ interface ICommentProps {
 
 const Comment = (props: ICommentProps) => {
   const [newCommnetValue, setNewCommentValue] = useState<string>("");
+  const [isUpload, setIsUpload] = useState<boolean>(true);
 
   const ServerConnect = () => {
     API.post(
@@ -23,6 +24,7 @@ const Comment = (props: ICommentProps) => {
     )
       .then((_) => {
         alert("댓글이 추가되었습니다!");
+        setIsUpload(true);
         window.location.reload();
       })
       .catch((_) => {});
@@ -44,7 +46,18 @@ const Comment = (props: ICommentProps) => {
         value={newCommnetValue}
         onChange={(e) => setNewCommentValue(e.target.value)}
       />
-      <S.AddCommentButton onClick={ServerConnect}>댓글 달기</S.AddCommentButton>
+      <S.AddCommentButton
+        onClick={() => {
+          if (isUpload) {
+            setIsUpload(false);
+            if (window.confirm("댓글을 추가 하시겠습니까?")) {
+              ServerConnect();
+            }
+          }
+        }}
+      >
+        댓글 달기
+      </S.AddCommentButton>
     </S.MainContainer>
   );
 };
