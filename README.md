@@ -62,7 +62,7 @@ Linux 플랜은 자기가 원하는거 고르고 **다음: 배포**로 넘어간
 암호에는 영어 대문자, 영어 소문자, 숫자(0-9) 및 영숫자가 아닌 문자(!, $, #, % 등) 범주 중 세 개에 해당하는 문자가 포함되어 있어야 합니다.
 10. 네트워킹으로 넘어가 연결 방법을 퍼블릭 액세스(허용된 IP 주소)로 선택을 하고 0.0.0.0 에서 255.255.255.255추가 버튼을 눌으고 검토 + 만들기를 눌러 유연한 서버를 만들어줍니다.
 11. 리소스로 서버에 들어가 설저 -> 데이터베이스에 들어가서 추가를 눌어서 데이터베이스을 만듭니다. 이름은 daeda로 만듭니다. 
-12. 그리고 다음과 같이 backend브랜치에 github workflow에 **name: Set up Java version**다음 부분에 넣어준다.
+12. 그리고 다음에 있는 코드를 .github/workflows/main_daeda.yml에 **name: Set up Java version**다음 부분에 넣어준다.
     
     ```yaml
     - name: Set yml
@@ -84,6 +84,7 @@ Linux 플랜은 자기가 원하는거 고르고 **다음: 배포**로 넘어간
     jwt.secret.access: ${{ secrets.ACCESS_KEY }} jwt access 암호화
     jwt.secret.refresh: ${{ secrets.REFRESH_KEY }}  jwt refresh 암호화
     ```
+    ![스크린샷 2023-06-22 235143](https://github.com/hackersground-kr/CO1project/assets/104004650/264ce081-8d88-4a80-8b71-51579d91530c)
 14. github action이 성공하면 끝이다.
 ![스크린샷 2023-06-22 194905](https://github.com/hackersground-kr/CO1project/assets/104004650/2debcda7-6d9d-4260-918f-e02eda7a4f7a)
 
