@@ -10,6 +10,7 @@ import Header from "./components/common/header/Header";
 import ExperiencePage from "./pages/ExperiencePage";
 import ExperienceDetail from "./pages/ExperienceDetail";
 import CreateExpPage from "./pages/CreateExpPage";
+import CreateMento from "./components/createMento/CreateMento";
 
 const Router = () => {
   return (
@@ -19,6 +20,7 @@ const Router = () => {
         <Route path="/" element={<Main />} />
         <Route path="/mentor" element={<Mentoring />} />
         <Route path="/experience" element={<ExperiencePage />} />
+        <Route path="/creatementoring" element={<CreateMento />} />
         <Route path="/createexperience" element={<CreateExpPage />} />
         <Route path="/experience/:id" element={<ExperienceDetail />} />
         <Route path="/signup" element={<Signup />} />
