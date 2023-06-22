@@ -13,6 +13,7 @@ import ExperienceDetail from "./pages/ExperienceDetail";
 import CreateExpPage from "./pages/CreateExpPage";
 import CreateMento from "./components/createMento/CreateMento";
 import CreateinvestPage from "./pages/CreateinvestPage";
+import Invest from "./components/invest/Invest";
 
 const Router = () => {
   return (
@@ -31,6 +32,7 @@ const Router = () => {
         <Route path="/signin2" element={<Signin2 />} />
         <Route path="/signin3" element={<Signin3 />} />
         <Route path="/mypage" element={<Mypage />} />
+        <Route path="/invest" element={<Invest/>} />
       </Routes>
     </BrowserRouter>
   );

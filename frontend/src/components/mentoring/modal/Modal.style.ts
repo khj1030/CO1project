@@ -26,7 +26,6 @@ export const IntroduceBox = styled.p`
   width: 70%;
   padding: 0.5rem 0.5rem;
   height: 3rem;
-  background-color: #eeeeee;
   display: block;
   border-radius: 0 50rem 50rem 0;
 `;
@@ -59,7 +58,6 @@ export const ContactContainer = styled.p`
   width: 90%;
   height: 10rem;
   padding: 5%;
-  background-color: gray;
   margin: 1rem 0;
 `;
 

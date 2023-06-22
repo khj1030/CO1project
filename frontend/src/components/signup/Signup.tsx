@@ -8,8 +8,8 @@ const Signup = (): ReactElement => {
   const [id, setId] = useState<string>();
   const [pw, setPw] = useState<string>();
 
-  const postAccount = () => {
-    axios
+  const postAccount = async () => {
+    await axios
       .post("https://daeda.azurewebsites.net/api/user/login", {
         id: id,
         password: pw,
@@ -18,8 +18,10 @@ const Signup = (): ReactElement => {
         localStorage.setItem("accessToken", res.data.accessToken);
         alert("로그인 성공");
         navigate("/");
+        window.location.reload();
       })
       .catch((err) => {
+        alert("로그인 실패");
         console.log(err);
       });
   };
@@ -41,6 +43,7 @@ const Signup = (): ReactElement => {
         <S.InputWrapper>
           비밀번호
           <S.Input
+            type="password"
             onChange={(e) => {
               setPw(e.target.value);
             }}

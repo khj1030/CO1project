@@ -15,12 +15,14 @@ const CreateExp = () => {
         alert("제목 혹은 내용을 똑바로 입력해주세요.");
         return;
       }
+      const Token: string | null = localStorage.getItem("accessToken");
+
       await API.post(
         "api/post/register",
         { title: title, body: markdown },
         {
           headers: {
-            Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2ODgwMTIzNjQsInVzZXJJZCI6Mn0.pygcaqnnSEvBGMFN_OrQ8j0NclCEoJaV__ddqwaUhak`,
+            Authorization: `Bearer ${Token}`,
           },
         }
       )
