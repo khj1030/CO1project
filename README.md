@@ -62,24 +62,78 @@ Linux 플랜은 자기가 원하는거 고르고 **다음: 배포**로 넘어간
 암호에는 영어 대문자, 영어 소문자, 숫자(0-9) 및 영숫자가 아닌 문자(!, $, #, % 등) 범주 중 세 개에 해당하는 문자가 포함되어 있어야 합니다.
 10. 네트워킹으로 넘어가 연결 방법을 퍼블릭 액세스(허용된 IP 주소)로 선택을 하고 0.0.0.0 에서 255.255.255.255추가 버튼을 눌으고 검토 + 만들기를 눌러 유연한 서버를 만들어줍니다.
 11. 리소스로 서버에 들어가 설저 -> 데이터베이스에 들어가서 추가를 눌어서 데이터베이스을 만듭니다. 이름은 daeda로 만듭니다. 
-12. 그리고 다음에 있는 코드를 .github/workflows/main_daeda.yml에 **name: Set up Java version**다음 부분에 넣어준다.
+12. 그리고 다음에 있는 코드를 .github/workflows/main_daeda.yml에 1번째 코드들을 2번째 코드로 바꿔주세요.
+```
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Java version
+        uses: actions/setup-java@v1
+        with:
+          java-version: '17'
+
+      - name: Build with Maven
+        run: mvn clean install
+
+      - name: Upload artifact for deployment job
+        uses: actions/upload-artifact@v2
+        with:
+          name: java-app
+          path: '${{ github.workspace }}/target/*.jar
+```
+
+
+
+```
+jobs:
+  build:
+    runs-on: ubuntu-latest
     
-    ```yaml
-    - name: Set yml
-            uses: microsoft/variable-substitution@v1
-            with:
-              files: ./backend/src/main/resources/application.yml
-            env:
-              spring.datasource.url: ${{ secrets.DB_URL }} #DB 주소
-              spring.datasource.username: ${{ secrets.DB_USERNAME }} #DB 이름
-              spring.datasource.password: ${{ secrets.DB_PASSWORD }} #DB 암호
-              jwt.secret.access: ${{ secrets.ACCESS_KEY }} #access 암호화(아무 문자열 입력)
-              jwt.secret.refresh: ${{ secrets.REFRESH_KEY }} #refresh 암호화(아무 문자열 입력)
-    ```
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Java version
+        uses: actions/setup-java@v1
+        with:
+          java-version: '17'
+
+      - name: Set yml
+        uses: microsoft/variable-substitution@v1
+        with:
+          files: ./backend/src/main/resources/application.yml
+        env:
+          spring.datasource.url: ${{ secrets.DB_URL }}
+          spring.datasource.username: ${{ secrets.DB_USERNAME }}
+          spring.datasource.password: ${{ secrets.DB_PASSWORD }}
+          jwt.secret.access: ${{ secrets.ACCESS_KEY }}
+          jwt.secret.refresh: ${{ secrets.REFRESH_KEY }}
+
+
+      - name: Build with Gradle
+        working-directory: ./backend
+        run: chmod +x ./gradlew && ./gradlew bootJar
+
+      - name: Upload artifact for deployment job
+        uses: actions/upload-artifact@v2
+        with:
+          name: java-app
+          path: ./backend/build/libs/*.jar
+
+      - name: Upload artifact for deployment job
+        uses: actions/upload-artifact@v2
+        with:
+          name: java-app
+          path: ./backend/build/libs/*.jar
+```
+
 13. 깃허브 상단에있는 Setting 눌으고 그다음에 Secrets → Actions → New repository secret 눌으고 환경변수를 설정해준다.
     
     ```spring.datasource.url: ${{ secrets.DB_URL }} db주소
-    spring.datasource.username: ${{ secrets.DB_USERNAME }} db아이디
+    spring.datasource.username: ${{ secrets.DB_USERNAME }} db로그인 이름
     spring.datasource.password: ${{ secrets.DB_PASSWORD }} db비밀번호
     jwt.secret.access: ${{ secrets.ACCESS_KEY }} jwt access 암호화
     jwt.secret.refresh: ${{ secrets.REFRESH_KEY }}  jwt refresh 암호화
