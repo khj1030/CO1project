@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import API from "../../../util/API";
 import { IInvestorValue } from "../../../types/IInvestorValue";
+import * as S from "./Modal.style";
 
 const Modal = ({ investorId }: { investorId: number }) => {
   const [investorValue, setInvestorValue] = useState<IInvestorValue>();
@@ -8,25 +9,26 @@ const Modal = ({ investorId }: { investorId: number }) => {
   useEffect(() => {
     API.get(`api/investor/${investorId}`)
       .then((e) => {
-        console.log(e);
         let copy: IInvestorValue = e.data;
         setInvestorValue(copy);
       })
-      .catch((e) => {
-        console.log(e);
-      });
+      .catch((_) => {});
   }, [investorId]);
 
   return (
-    <div>
-      <div>
-        <p>{investorValue?.title}</p>
-        <div>목표 금액 : {investorValue?.totalPrice}</div>
-      </div>
-      <p>{investorValue?.user.nickname}</p>
-      <p>{investorValue?.introduction}</p>
-      <button>투자하기</button>
-    </div>
+    <S.MainContainer>
+      <S.SubContainer>
+        <S.TitleContentsWrap>
+          <S.Title>{investorValue?.title}</S.Title>
+          <S.TotalPrice>목표 금액 : {investorValue?.totalPrice}</S.TotalPrice>
+        </S.TitleContentsWrap>
+        <S.NameElement>{investorValue?.user.nickname}</S.NameElement>
+        <S.TextAreaIntroduceElement>
+          {investorValue?.introduction}
+        </S.TextAreaIntroduceElement>
+        <S.InvestButton>투자하기</S.InvestButton>
+      </S.SubContainer>
+    </S.MainContainer>
   );
 };
 
