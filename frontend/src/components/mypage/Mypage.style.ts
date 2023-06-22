@@ -51,7 +51,9 @@ export const ChangePosi = styled.button`
     border: none;
 `
 
-export const MidComponent = styled.div``
+export const MidComponent = styled.div`
+    margin-right: 2.8rem;
+`
 
 export const MentoBox = styled.div`
     width: 42.375rem;
@@ -123,6 +125,66 @@ export const NoticeText = styled.div`
     font-family: "Pretendard";
     font-weight: 700;
 `
+// -------------------------------------------
+
+export const MailDiv = styled.div`
+    margin-top: 2.5rem;
+
+    width: 42.375rem;
+    height: 34.3125rem;
+    border-radius: 20px;
+    border: 1px solid #9A9A9D;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+`
+
+export const MailImg = styled.img`
+    width: 12.5rem;
+    height: 12.5rem;
+`
+
+export const MailText = styled.div`
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: "Pretendard";
+    font-weight: 700;
+`
+
+export const BtnsWrapper = styled.div`
+`
+
+export const AcceptBtn = styled.button`
+    margin-right: 5.5rem;
+
+    width: 12.5rem;
+    height: 3.125rem;
+
+    border-radius: 50px;
+    background: #3840B4;
+    border: none;
+
+    color: #FFF;
+    font-size: 1.5rem;
+    font-family: "Pretendard";
+    font-weight: 600;
+`
+export const NoBtn = styled.button`
+    width: 12.5rem;
+    height: 3.125rem;
+
+    border-radius: 50px;
+    background: #9A9A9D;
+    border: none;
+
+    color: #FFF;
+    font-size: 1.5rem;
+    font-family: "Pretendard";
+    font-weight: 600;
+`
+
 // -------------------------------------------
 export const ChatRoom = styled.div`
     margin-top: 2.5rem;
