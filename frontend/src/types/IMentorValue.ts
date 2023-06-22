@@ -1,3 +1,5 @@
+import { IServerUserValue } from "./IServerUserValue";
+
 export interface IMentorValue {
   name: string;
   price: string;
@@ -13,16 +15,6 @@ export interface IServerMentorListValue {
   annualSales: string;
   price: string;
   job: string;
-  user: {
-    createDate: string;
-    modifiedDate: string;
-    userId: number;
-    id: string;
-    password: string;
-    nickname: string;
-    email: string;
-    tel_number: string;
-    type: string;
-  };
+  user: IServerUserValue;
   introduction: string;
 }
