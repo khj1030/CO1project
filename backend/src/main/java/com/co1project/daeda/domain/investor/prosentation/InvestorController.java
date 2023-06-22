@@ -1,6 +1,7 @@
-package com.co1project.daeda.domain.investor.prosentation.dto.request;
+package com.co1project.daeda.domain.investor.prosentation;
 
 import com.co1project.daeda.domain.investor.domain.Investor;
+import com.co1project.daeda.domain.investor.prosentation.dto.request.InvestorRequest;
 import com.co1project.daeda.domain.investor.service.InvestorService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;

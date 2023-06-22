@@ -14,17 +14,12 @@ public class InvestorRequest {
 
     private String totalPrice;
 
-    private String sumPrice;
-
-    private int progress;
-
     private String introduction;
 
     public Investor toEntity() {
         return Investor.builder()
                 .title(title)
                 .totalPrice(totalPrice)
-                .sumPrice(sumPrice)
                 .introduction(introduction)
                 .build();
     }
