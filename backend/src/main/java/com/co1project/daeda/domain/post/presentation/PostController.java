@@ -2,6 +2,7 @@ package com.co1project.daeda.domain.post.presentation;
 
 import com.co1project.daeda.domain.post.domain.Post;
 import com.co1project.daeda.domain.post.presentation.request.PostRegisterRequest;
+import com.co1project.daeda.domain.post.presentation.response.PostCommentResponse;
 import com.co1project.daeda.domain.post.presentation.response.PostListResponse;
 import com.co1project.daeda.domain.post.service.PostService;
 import com.co1project.daeda.domain.user.domain.User;
@@ -29,7 +30,7 @@ public class PostController {
     }
 
     @GetMapping("/{postId}")
-    public Post findPostByPostId(@PathVariable Long postId) {
+    public PostCommentResponse findPostByPostId(@PathVariable Long postId) {
         return postService.findPostByPostId(postId);
     }
 }
