@@ -20,6 +20,7 @@ const Signup = (): ReactElement => {
         navigate("/");
       })
       .catch((err) => {
+        alert("로그인 실패")
         console.log(err);
       });
   };
@@ -40,7 +41,7 @@ const Signup = (): ReactElement => {
 
         <S.InputWrapper>
           비밀번호
-          <S.Input
+          <S.Input type="password"
             onChange={(e) => {
               setPw(e.target.value);
             }}
