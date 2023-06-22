@@ -5,6 +5,8 @@ import com.co1project.daeda.domain.user.presentation.dto.request.UserLoginReques
 import com.co1project.daeda.domain.user.presentation.dto.request.UserSignupRequestDto;
 import com.co1project.daeda.domain.user.presentation.dto.response.UserTokenResponseDto;
 import com.co1project.daeda.domain.user.service.UserService;
+import com.co1project.daeda.global.annotation.CheckToken;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +21,12 @@ public class UserController {
     @ResponseStatus(HttpStatus.CREATED)
     public User signup(@RequestBody UserSignupRequestDto request) {
         return userService.signup(request);
+    }
+
+    @CheckToken
+    @GetMapping("/myinfo")
+    public User myInfo(@RequestAttribute User user) {
+        return user;
     }
 
     @PostMapping("/login")
