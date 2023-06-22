@@ -12,9 +12,9 @@ import java.util.List;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class PostCommentResponse {
     private Post post;
-    private List<Comment> comments;
+    private List<CommentResponse> comments;
 
-    public PostCommentResponse(Post post, List<Comment> comments) {
+    public PostCommentResponse(Post post, List<CommentResponse> comments) {
         this.post = post;
         this.comments = comments;
     }

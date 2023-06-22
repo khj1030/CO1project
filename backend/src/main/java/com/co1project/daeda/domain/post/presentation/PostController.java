@@ -1,6 +1,8 @@
 package com.co1project.daeda.domain.post.presentation;
 
+import com.co1project.daeda.domain.post.domain.Comment;
 import com.co1project.daeda.domain.post.domain.Post;
+import com.co1project.daeda.domain.post.presentation.request.CommentRequest;
 import com.co1project.daeda.domain.post.presentation.request.PostRegisterRequest;
 import com.co1project.daeda.domain.post.presentation.response.PostCommentResponse;
 import com.co1project.daeda.domain.post.presentation.response.PostListResponse;
@@ -24,7 +26,13 @@ public class PostController {
         return postService.register(request, user);
     }
 
-    @GetMapping()
+    @CheckToken
+    @PostMapping("/comment/register/{postId}")
+    public Comment register(@RequestBody CommentRequest request, @PathVariable Long postId, @RequestAttribute User user) {
+        return postService.create(request, postId, user);
+    }
+
+    @GetMapping
     public PostListResponse findPostByAll() {
         return postService.findPostByAll();
     }
