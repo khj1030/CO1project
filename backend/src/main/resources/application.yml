@@ -27,3 +27,8 @@ jwt:
   security:
     access-key: ${ACCESS_KEY}
     refresh-key: ${REFRESH_KEY}
+
+azure:
+  storage:
+    blob:
+      container-name: daeda
