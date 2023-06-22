@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import * as S from "./CreateMento.style";
 import Question from "./question/Question";
 import { useNavigate } from "react-router-dom";
+import API from "../../util/API";
 
 const CreateMento = () => {
   const navigate = useNavigate();
@@ -10,9 +11,26 @@ const CreateMento = () => {
   const [position, setPosition] = useState<string>("");
   const [introduce, setIntroduce] = useState<string>("");
 
-  const ServerConnect = () => {
+  const ServerConnect = async () => {
     if (window.confirm("멘토 신청을 하시겠습니까?")) {
-      alert("신청되었습니다.");
+      await API.post(
+        "api/mentoring/create",
+        {
+          annualSales: sales,
+          price: price,
+          job: position,
+          introduction: introduce,
+        },
+        {
+          headers: {
+            Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2ODgwMTIzNjQsInVzZXJJZCI6Mn0.pygcaqnnSEvBGMFN_OrQ8j0NclCEoJaV__ddqwaUhak`,
+          },
+        }
+      )
+        .then((_) => {
+          alert("신청되었습니다.");
+        })
+        .catch((_) => {});
       navigate("/mentor");
     }
   };

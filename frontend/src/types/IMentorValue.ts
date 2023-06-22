@@ -1,13 +1,12 @@
 import { IServerUserValue } from "./IServerUserValue";
 
 export interface IMentorValue {
-  name: string;
+  annualSales: string;
+  introduction: null;
+  job: string;
+  mentoringId: number;
   price: string;
-  carrer: string;
-  introduce: string;
-  email: string;
-  phoneNumber: string;
-  imgUrl: string;
+  user: IServerUserValue;
 }
 
 export interface IServerMentorListValue {
