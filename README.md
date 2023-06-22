@@ -89,7 +89,7 @@ Linux 플랜은 자기가 원하는거 고르고 **다음: 배포**로 넘어간
 
 ## 프론트엔드 시작하기
 
-1. git clone를 한다(브랜치는 frontendRelease).
+1. git clone를 한다.
     
     > git clone https://github.com/hackersground-kr/CO1project.git
     > 
