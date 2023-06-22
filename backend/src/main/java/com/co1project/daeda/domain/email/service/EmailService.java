@@ -61,7 +61,6 @@ public class EmailService {
             msgOfEmail += "<p>" + user.getNickname() + "님의 전화번호 : " + user.getTel_number() + " 이메일 : " + user.getEmail() + "</p>";
             msgOfEmail += "<p>감사합니다.<p>";
 
-
             message.setFrom(setFrom);
             message.setText(msgOfEmail, "utf-8", "html");
 
