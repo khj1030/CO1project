@@ -76,8 +76,7 @@ Linux 플랜은 자기가 원하는거 고르고 **다음: 배포**로 넘어간
               jwt.secret.access: ${{ secrets.ACCESS_KEY }} #access 암호화(아무 문자열 입력)
               jwt.secret.refresh: ${{ secrets.REFRESH_KEY }} #refresh 암호화(아무 문자열 입력)
     ```
-    (DB 주소는 예제는 jdbc:mysql://(호스트):(포트)/(데이터베이스이름))
-13. setting → Secrets → Actions → New repository secret 눌으고 환경변수를 설정해준다.
+13. 깃허브 상단에있는 Setting 눌으고 그다음에 Secrets → Actions → New repository secret 눌으고 환경변수를 설정해준다.
     
     ```spring.datasource.url: ${{ secrets.DB_URL }} db주소
     spring.datasource.username: ${{ secrets.DB_USERNAME }} db아이디
