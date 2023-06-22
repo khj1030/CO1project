@@ -16,13 +16,22 @@ const CreateInvest = () => {
       return;
     }
     if (window.confirm("투자를 받으시겠습니까?")) {
-      await API.post(`api/investor/create`, {
-        title: title,
-        totalPrice: price,
-        introduction: introduce,
-      })
-        .then((e) => console.log(e))
-        .catch((e) => console.log(e));
+      await API.post(
+        `api/investor/create`,
+        {
+          title: title,
+          totalPrice: price,
+          introduction: introduce,
+        },
+        {
+          headers: {
+            Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2ODgwNTUwMDgsInVzZXJJZCI6MX0.MlAFw0pA4HSSBE9GXXYf-yWiBIA3icHZUapQlRwTfxM`,
+          },
+        }
+      )
+        .then((_) => alert("성공적으로 게시되었습니다."))
+        .catch((_) => {});
+      navigate("/invest");
     }
   };
 
