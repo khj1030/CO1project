@@ -25,3 +25,23 @@ export const InputContents = styled.input`
   border: none;
   box-shadow: none;
 `;
+
+export const FileInputContents = styled.input`
+  position: absolute;
+  font-size: 0.8rem;
+  border: none;
+  box-shadow: none;
+  background-color: blue;
+  padding: 0.5rem;
+  width: 7.5rem;
+  opacity: 0;
+`;
+
+export const GetFileButton = styled.button`
+  background-color: #23e9b4;
+  font-size: 0.8rem;
+  color: white;
+  border: none;
+  padding: 0.5rem 2rem;
+  border-radius: 5px;
+`;

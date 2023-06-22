@@ -12,6 +12,7 @@ import ExperiencePage from "./pages/ExperiencePage";
 import ExperienceDetail from "./pages/ExperienceDetail";
 import CreateExpPage from "./pages/CreateExpPage";
 import CreateMento from "./components/createMento/CreateMento";
+import CreateinvestPage from "./pages/CreateinvestPage";
 
 const Router = () => {
   return (
@@ -22,13 +23,14 @@ const Router = () => {
         <Route path="/mentor" element={<Mentoring />} />
         <Route path="/experience" element={<ExperiencePage />} />
         <Route path="/creatementoring" element={<CreateMento />} />
+        <Route path="/createinvest" element={<CreateinvestPage />} />
         <Route path="/createexperience" element={<CreateExpPage />} />
         <Route path="/experience/:id" element={<ExperienceDetail />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/signin1" element={<Signin1 />} />
         <Route path="/signin2" element={<Signin2 />} />
         <Route path="/signin3" element={<Signin3 />} />
-        <Route path="/mypage" element={<Mypage/>} />
+        <Route path="/mypage" element={<Mypage />} />
       </Routes>
     </BrowserRouter>
   );
