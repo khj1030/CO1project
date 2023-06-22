@@ -10,6 +10,7 @@ import com.co1project.daeda.domain.post.presentation.request.PostRegisterRequest
 import com.co1project.daeda.domain.post.presentation.response.CommentResponse;
 import com.co1project.daeda.domain.post.presentation.response.PostCommentResponse;
 import com.co1project.daeda.domain.post.presentation.response.PostListResponse;
+import com.co1project.daeda.domain.post.presentation.response.PostResponse;
 import com.co1project.daeda.domain.user.domain.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -56,7 +57,11 @@ public class PostService {
 
         Page<Post> responses = postRepository.findAll(pageable);
 
-        return new PostListResponse(responses.getContent());
+        List<PostResponse> responseList = responses.getContent().stream()
+                .map(post -> new PostResponse(post))
+                .collect(Collectors.toList());
+
+        return new PostListResponse(responseList);
     }
 
     public PostCommentResponse findPostByPostId(Long postId) {
@@ -66,7 +71,7 @@ public class PostService {
         List<Comment> comments =  commentRepository.findAllByPostPostId(postId);
 
         List<CommentResponse> commentResponses = comments.stream()
-                .map(comment -> new CommentResponse(comment.getBody(), comment.getUser()))
+                .map(comment -> new CommentResponse(comment.getBody(), comment.getUser(), comment.getCreateDate(), comment.getModifiedDate()))
                 .collect(Collectors.toList());
 
         return new PostCommentResponse(post, commentResponses);

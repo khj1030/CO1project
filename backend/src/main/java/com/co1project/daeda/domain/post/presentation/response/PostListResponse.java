@@ -1,6 +1,5 @@
 package com.co1project.daeda.domain.post.presentation.response;
 
-import com.co1project.daeda.domain.post.domain.Post;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,5 +11,5 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class PostListResponse {
-    private List<Post> postList;
+    private List<PostResponse> postList;
 }
