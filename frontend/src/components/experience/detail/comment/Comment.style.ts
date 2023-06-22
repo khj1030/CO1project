@@ -35,3 +35,13 @@ export const UserContentsWrap = styled.div`
   display: flex;
   margin: 1.5rem 0;
 `;
+
+export const AddCommentButton = styled.button`
+  margin-top: 1rem;
+  padding: 0.5rem 2rem;
+  border: none;
+  border-radius: 5px;
+  box-shadow: none;
+  background-color: #386cf4;
+  color: white;
+`;

@@ -3,17 +3,26 @@ import * as S from "./ContentsBox.style";
 import LogoImg from "../../../asset/Logo.svg";
 import { useNavigate } from "react-router-dom";
 
-const ContentsBox = ({ isInPhoto, id }: { isInPhoto: boolean; id: number }) => {
+interface IExpProps {
+  state: {
+    title: string;
+    postId: number;
+    name: string;
+  };
+}
+
+const ContentsBox = (props: IExpProps) => {
   const navigate = useNavigate();
   return (
-    <S.MainContainer onClick={() => navigate(`/experience/${id}`)}>
-      {isInPhoto && <S.ImageArea url={LogoImg} />}
+    <S.MainContainer
+      onClick={() => navigate(`/experience/${props.state.postId}`)}
+    >
       <S.SubContainer>
-        <S.Title>제목 제목 제목 제목 제목 제목 제목 제목 제목 제목 </S.Title>
+        <S.Title>{props.state.title} </S.Title>
         <S.ImageContents>
           <S.ImageElement src={LogoImg} alt="" />
           <div>
-            <p>이름</p>
+            <p>{props.state.name}</p>
             <S.PriceContext>price</S.PriceContext>
           </div>
         </S.ImageContents>
