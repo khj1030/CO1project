@@ -16,6 +16,7 @@ const CreateInvest = () => {
       return;
     }
     if (window.confirm("투자를 받으시겠습니까?")) {
+      const Token: string | null = localStorage.getItem("accessToken");
       await API.post(
         `api/investor/create`,
         {
@@ -25,7 +26,7 @@ const CreateInvest = () => {
         },
         {
           headers: {
-            Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2ODgwNTUwMDgsInVzZXJJZCI6MX0.MlAFw0pA4HSSBE9GXXYf-yWiBIA3icHZUapQlRwTfxM`,
+            Authorization: `Bearer ${Token}`,
           },
         }
       )

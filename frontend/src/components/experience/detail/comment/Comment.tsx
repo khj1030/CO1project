@@ -13,12 +13,13 @@ const Comment = (props: ICommentProps) => {
   const [isUpload, setIsUpload] = useState<boolean>(true);
 
   const ServerConnect = () => {
+    const Token: string | null = localStorage.getItem("accessToken");
     API.post(
       `api/post/comment/register/${props.postid}`,
       { body: newCommnetValue },
       {
         headers: {
-          Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2ODgwMTIzNjQsInVzZXJJZCI6Mn0.pygcaqnnSEvBGMFN_OrQ8j0NclCEoJaV__ddqwaUhak`,
+          Authorization: `Bearer ${Token}`,
         },
       }
     )

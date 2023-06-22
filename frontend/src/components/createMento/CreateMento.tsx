@@ -13,6 +13,7 @@ const CreateMento = () => {
 
   const ServerConnect = async () => {
     if (window.confirm("멘토 신청을 하시겠습니까?")) {
+      const Token: string | null = localStorage.getItem("accessToken");
       await API.post(
         "api/mentoring/create",
         {
@@ -23,7 +24,7 @@ const CreateMento = () => {
         },
         {
           headers: {
-            Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2ODgwMTIzNjQsInVzZXJJZCI6Mn0.pygcaqnnSEvBGMFN_OrQ8j0NclCEoJaV__ddqwaUhak`,
+            Authorization: `Bearer ${Token}`,
           },
         }
       )
