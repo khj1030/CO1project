@@ -18,6 +18,8 @@ const Signin1 = () => {
     const next = () => {
         if(checkingPw === data.password){
             navigater('/signin2',{state : data})
+        } else {
+            alert("비밀번호가 일치하지 않습니다.")
         }
     }
 

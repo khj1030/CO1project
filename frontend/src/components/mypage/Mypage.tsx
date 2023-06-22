@@ -1,7 +1,10 @@
 import BoxComponent from "./BoxComponent";
 import * as S from "./Mypage.style"
+import pinkNotice from "../../asset/pinkNotice.svg";
 
 const Mypage = () => {
+    let repeat = [1,2,3,4,5,6,7,8,9,10,11,12,13]
+
     return(
         <S.Body>
             <S.Wrapper>
@@ -11,46 +14,47 @@ const Mypage = () => {
                     <S.ChangePosi>투자자로 전환</S.ChangePosi>
                 </S.ProfileWrapper>
 
+                <S.MidComponent>
+
+                    <S.MentoBox>
+                        <S.MentoImg src="data:image/jpeg;base64,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" />
+                        <S.MentoInfo>
+                            <S.MentoName>귀신님</S.MentoName>
+                            <S.MentoTimePerPay>
+                                <S.MentoTime>1시간/ </S.MentoTime>
+                                <S.MentoPay>30,000원</S.MentoPay>
+                            </S.MentoTimePerPay>
+                            <S.MentoCarrer>연매출 6억 / 보험</S.MentoCarrer>
+                        </S.MentoInfo>
+                        
+                        <S.Notice>
+                            <S.PinkNotice src={pinkNotice}/>
+                            <S.NoticeText>서로간의 욕설은 허용되지 않습니다.</S.NoticeText>
+                        </S.Notice>
+
+                    </S.MentoBox>
+
+                    <S.ChatRoom>
+                    </S.ChatRoom>
+
+                </S.MidComponent>
+
                 <S.RightComponent>
-                    
-                <S.MentoWrapper>
-                    멘토
-                    <S.MentoBoxWrapper>
-                        <S.MentoBox>
-                            <S.BoxTitle>멘토 신청 현황</S.BoxTitle>
 
-                            <BoxComponent/>
-                            <BoxComponent/>
-                            <BoxComponent/>
+                    {
+                        repeat.map((i)=>(
+                            <S.AlarmDiv>
+                                <S.AlarmPic src="data:image/jpeg;base64,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"/>
+                                <div>
+                                    <S.AlarmWho>귀신님</S.AlarmWho>
+                                    <S.AlarmContent>귀신님이 연락이 오셨습니다.</S.AlarmContent>
+                                </div>
+                            </S.AlarmDiv>                            
+                        ))
+                    }
 
-                        </S.MentoBox>
-
-                        <S.MentoBox>
-                            <S.BoxTitle>멘티 시간 조율 현황</S.BoxTitle>
-
-                            <BoxComponent/>
-                            <BoxComponent/>
-                            <BoxComponent/>
-
-                        </S.MentoBox>
-
-                    </S.MentoBoxWrapper>
-                </S.MentoWrapper>
-
-
-                <S.ShortCutWrapper>
-
-                    바로가기
-                    
-                    <S.ShortCutBtnsWrapper>
-                        <S.ShotCutBtn>투자모집</S.ShotCutBtn>
-                        <S.ShotCutBtn>경험공유</S.ShotCutBtn>
-                        <S.ShotCutBtn>멘토링</S.ShotCutBtn>
-                        <S.ShotCutBtn>홈 화면</S.ShotCutBtn>
-                    </S.ShortCutBtnsWrapper>
-                </S.ShortCutWrapper>
-                
                 </S.RightComponent>
+
 
             </S.Wrapper>
         </S.Body>
