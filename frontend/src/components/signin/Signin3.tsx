@@ -1,8 +1,39 @@
 import * as S from "./Signin3.style"
 import Logo from "../../asset/Logo.svg"
 import CheckIcon from "../../asset/Check.svg"
+import CheckedCheckIcon from "../../asset/CheckedCheckIcon.svg"
+import { useLocation, useNavigate } from "react-router-dom"
+import { useState } from "react"
+import * as T from "../../types/Auth";
+import API from "../../util/API"
 
 const Signin3 = () => {
+    const navigater = useNavigate()
+    const location = useLocation()
+    const [data, setData] = useState<T.SignIn>(location.state)
+
+    const [type, setType] = useState({
+        FOUNDER : false,
+        INVESTOR : false
+    })
+
+    const submit = () => {
+        if(type.FOUNDER){
+            setData({...data, type : "FOUNDER"})
+        } else if(type.INVESTOR) {
+            setData({...data, type : "INVESTOR"})
+        }
+        console.log(data)
+        API.post('/api/user/signup',{data})
+        .then((res)=>{
+            alert("회원가입 성공")
+            navigater('/')
+        })
+        .catch((err)=>{
+            console.error(err)
+        })
+    }
+
     return(
         <S.Body>
             
@@ -18,7 +49,7 @@ const Signin3 = () => {
                 <S.CheckWrapper>
                     투자자로 투자하고 싶다면
                     <S.CheckBtn>
-                        <S.CheckIcon src={CheckIcon}/>
+                        <S.CheckIcon src={type.FOUNDER ? CheckedCheckIcon : CheckIcon } onClick={()=>{setType({FOUNDER : true, INVESTOR : false})}} />
                         투자자로 가입
                     </S.CheckBtn>
                 </S.CheckWrapper>
@@ -26,10 +57,13 @@ const Signin3 = () => {
                 <S.CheckWrapper>
                     내 아이디어를 빛내고 싶다면 
                     <S.CheckBtn>
-                        <S.CheckIcon src={CheckIcon}/>
+                        <S.CheckIcon src={type.INVESTOR ? CheckedCheckIcon : CheckIcon } onClick={()=>{setType({FOUNDER : false, INVESTOR : true})}}/>
                         창업인으로 가입
                     </S.CheckBtn>
                 </S.CheckWrapper>
+
+                <S.NextBtn onClick={submit}>확인</S.NextBtn>
+
             </S.Box>
 
         </S.Body>
