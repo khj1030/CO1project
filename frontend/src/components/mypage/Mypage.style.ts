@@ -51,81 +51,134 @@ export const ChangePosi = styled.button`
     border: none;
 `
 
-export const RightComponent = styled.div`
-
-`
-
-export const MentoWrapper = styled.div`
-font-size: 1.8rem;
-font-weight: 800;
-`
-
-export const MentoBoxWrapper = styled.div`
-margin-top: 3rem;
-
-display: flex;
-
-`
+export const MidComponent = styled.div``
 
 export const MentoBox = styled.div`
-    margin-right: 1.5rem;
+    width: 42.375rem;
+    height: 14.1875rem;
 
-    width: 24rem;
-    height: 35rem;
+    border-radius: 20px;
+    border: 1px solid #9A9A9D;
+    background: #FFF;
 
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+`
+
+export const MentoImg = styled.img`
+    width: 8rem;
+    height: 8rem;
+
+    margin-right: 1rem;
+`
+
+export const MentoInfo = styled.div`
+    margin-right: 3rem;
+`
+
+export const MentoName = styled.div` 
+    font-size: 1.5rem;
+    font-family: "Pretendard";
+    font-weight: 700;
+    margin-bottom: 1rem;
+`
+
+export const MentoTimePerPay = styled.div`
+display: flex;
+`
+
+export const MentoTime = styled.pre`
+    color: #9A9A9D;
+    font-size: 0.625rem;
+    font-family: "Pretendard";
+    font-weight: 600;
+    line-height: 300%;
+`
+
+export const MentoPay = styled.div`
+    font-size: 1.5625rem;
+    font-family: Pretendard;
+    font-weight: 600;
+`
+
+export const MentoCarrer = styled.div`
+    color: #9A9A9D;
+    font-size: 1rem;
+    font-family: "Pretendard";
+    font-weight: 700;
+`
+
+export const Notice = styled.div`
+    display: flex;
+`
+
+export const PinkNotice = styled.img`
+    margin-right: 0.6rem;
+`
+
+export const NoticeText = styled.div`
+    font-size: 0.875rem;
+    font-family: "Pretendard";
+    font-weight: 700;
+`
+// -------------------------------------------
+export const ChatRoom = styled.div`
+    margin-top: 2.5rem;
+
+    width: 42.375rem;
+    height: 34.3125rem;
+
+    border-radius: 20px;
+    border: 1px solid #9A9A9D;
+`
+
+export const RightComponent = styled.div`
+    width: 14.5625rem;
+    height: 50.9375rem;
+
+    border-radius: 20px;
+    border: 1px solid #9A9A9D;
+    background: #FFF;
 
     display: flex;
     flex-direction: column;
-    align-items: center;
-`
-
-export const BoxTitle = styled.div`
-    margin-bottom: 1rem;
-
-    width: 13rem;
-    height: 4rem;
-
-    background: #3840B4;
-    border-radius: 27px;
-
-    font-family: 'Pretendard';
-    font-weight: 700;
-    font-size: 1.2rem;
-    color: #FFFFFF;
-
-    display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 `
 
-export const ShortCutWrapper = styled.div`
-    margin-top: 5rem;
+export const AlarmDiv = styled.div`
+    margin-bottom: 0.8rem;
 
-    font-size: 1.7rem;
-    font-weight: 800;
-`
+    width: 11.8125rem;
+    height: 2.8125rem;
 
-export const ShortCutBtnsWrapper = styled.div`
-    padding: 1.5rem 1.7rem;
+    border-radius: 20px;
+    border: 1px solid #9A9A9D;
 
-    background: #FAFAFC;
-    border-radius: 30px;
 
     display: flex;
+    align-items: center;
 `
 
-export const ShotCutBtn = styled.button`
-    margin-right: 1rem;
-
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 9px;
-    border: none;
-
-    font-size: 1.2rem;
-    font-weight: 800;
-
-    width: 12rem;
-    height: 6.5rem;
+export const AlarmContent = styled.div`
+    text-align: center;
+    font-size: 0.5rem;
+    font-family: "Pretendard";
 `
+
+export const AlarmWho = styled.div`
+    font-size: 0.5625rem;
+    font-family: "Pretendard";
+    font-weight: 700;
+`
+
+export const AlarmPic = styled.img`
+    margin-left: 1rem;
+    margin-right: 0.3rem;
+
+    width: 1.5625rem;
+    height: 1.5625rem;
+`
+// 13개
