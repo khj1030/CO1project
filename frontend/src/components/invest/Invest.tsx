@@ -1,7 +1,10 @@
-import * as S from "./Invest.style"
-import PulsInvest from "../../asset/PlusInvest.svg"
 import {useEffect,useState} from "react"
 import API from "../../util/API";
+import { IServerUserValue } from "../../types/IServerUserValue";
+import Title from "../common/form/Title";
+import * as S from "../../styles/Form.style"
+import { useNavigate } from "react-router-dom";
+import ContentsBox from "./contentsBox/ContentsBox";
 
 type Content = {
     title : string,
@@ -9,30 +12,41 @@ type Content = {
     nickname : string
 }
 
+interface IServerGetValue{
+    introduction:string;
+    createDate:string;
+    investorId:number;
+    modifiedDate:string;
+    title: string;
+    totalPrice: any;
+    user:IServerUserValue
+}
+
+
 const Invest = () => {
-    let Cnt = [1,2,3,4,5,6,7,8,9];
-    const [contentData, setContentData] = useState<Content[]>([{
-        title : "",
-        introduction : "",
-        nickname : ""
-    }])
+    const navigate = useNavigate();
+    //let Cnt = [1,2,3,4,5,6,7,8,9];
+    const [contentData, setContentData] = useState<Content[]>([])
     const [isLodding, setIsLodding] = useState<boolean>(true);
 
     useEffect(()=>{
         API.get('/api/investor')
         .then((res)=>{
-            (res.data).map((val:any) => {
-                setContentData([...contentData,{
-                    title : val.title,
-                    introduction : val.introduction,
-                    nickname : val.user.nickname
-                }])
+            console.log(res);
+            let serverData:IServerGetValue[] = res.data;
+            let copy:Content[] = [];
+            // eslint-disable-next-line array-callback-return
+            serverData.map((val)=>{
+                console.log(val);
+                copy.push({title:val.title,introduction:val.introduction,nickname:val.user.nickname})
             })
+            setContentData([...copy]);
             setIsLodding(false)
         })
         .catch((err)=>{
             console.error(err)
         })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
     if(isLodding){
@@ -42,28 +56,16 @@ const Invest = () => {
     }
 
     return(
-        <>
-            <S.Wrapper>
-                <S.Title>투자자 모집</S.Title>
-                <S.SubTitle>내가 키우고 싶은 회사에 투자 하세요.</S.SubTitle>
-            
-                <S.ContentWrapper>
-                { contentData.map((val:any,idx:any)=>(
-                    <S.ContentBox key={idx} >
-                        <S.ContentTitle>{val.title}</S.ContentTitle>
-                        <S.Content>{val.introduction}</S.Content>
-                        <S.Info>
-                            <S.ContentName>{val.nickname}</S.ContentName>
-                            <S.LeftDays>{idx}일 남음</S.LeftDays>
-                        </S.Info>
-                    </S.ContentBox>
-                )) }
-                </S.ContentWrapper>
-                        
-
-            </S.Wrapper>
-            <S.PulsIcon src={PulsInvest} />
-        </>
+        <S.FormBody>
+            <S.AddBtn onClick={() => navigate("/creatementoring")}>
+                <p>+</p>
+            </S.AddBtn>
+            <Title title="투자자 모집" context="내가 키우고 싶은 회사에 투자 하세요."/>
+            <S.ListWrap>
+            {contentData.map((val,idx)=> 
+            <ContentsBox key={idx} title={val.title} name={val.nickname} introduce={val.introduction} />) }
+            </S.ListWrap>
+        </S.FormBody>
     )
 }
 
