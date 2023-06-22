@@ -1,6 +1,7 @@
 import BoxComponent from "./BoxComponent";
 import * as S from "./Mypage.style"
 import pinkNotice from "../../asset/pinkNotice.svg";
+import ChatRoom from "./ChatRoom";
 
 const Mypage = () => {
     let repeat = [1,2,3,4,5,6,7,8,9,10,11,12,13]
@@ -34,8 +35,7 @@ const Mypage = () => {
 
                     </S.MentoBox>
 
-                    <S.ChatRoom>
-                    </S.ChatRoom>
+                    <ChatRoom/>
 
                 </S.MidComponent>
 

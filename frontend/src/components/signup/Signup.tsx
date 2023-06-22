@@ -35,7 +35,7 @@ const Signup = ():ReactElement => {
 
                 <S.InputWrapper>
                     비밀번호
-                    <S.Input onChange={(e)=>{setPw(e.target.value)}}/>
+                    <S.Input type="password" onChange={(e)=>{setPw(e.target.value)}}/>
                 </S.InputWrapper>
 
                 <S.Hint onClick={()=>{navigate('/signin1')}}>계정이 없으신가요?</S.Hint>

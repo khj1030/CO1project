@@ -48,16 +48,16 @@ const Signin3 = () => {
             
                 <S.CheckWrapper>
                     투자자로 투자하고 싶다면
-                    <S.CheckBtn onClick={()=>{setType({FOUNDER : true, INVESTOR : false})}} >
-                        <S.CheckIcon src={type.FOUNDER ? CheckedCheckIcon : CheckIcon }/>
+                    <S.CheckBtn onClick={()=>{setType({FOUNDER : false, INVESTOR : true})}} >
+                        <S.CheckIcon src={type.INVESTOR ? CheckedCheckIcon : CheckIcon }/>
                         투자자로 가입
                     </S.CheckBtn>
                 </S.CheckWrapper>
 
                 <S.CheckWrapper>
                     내 아이디어를 빛내고 싶다면 
-                    <S.CheckBtn onClick={()=>{setType({FOUNDER : false, INVESTOR : true})}}>
-                        <S.CheckIcon src={type.INVESTOR ? CheckedCheckIcon : CheckIcon } />
+                    <S.CheckBtn onClick={()=>{setType({FOUNDER : true, INVESTOR : false})}}>
+                        <S.CheckIcon src={type.FOUNDER ? CheckedCheckIcon : CheckIcon } />
                         창업인으로 가입
                     </S.CheckBtn>
                 </S.CheckWrapper>
