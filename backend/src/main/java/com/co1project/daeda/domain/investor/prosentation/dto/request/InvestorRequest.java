@@ -25,7 +25,6 @@ public class InvestorRequest {
                 .title(title)
                 .totalPrice(totalPrice)
                 .sumPrice(sumPrice)
-                .progress(progress)
                 .introduction(introduction)
                 .build();
     }

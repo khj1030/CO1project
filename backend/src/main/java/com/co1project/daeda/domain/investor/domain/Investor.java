@@ -21,17 +21,14 @@ public class Investor extends BaseTimeEntity {
 
     private String sumPrice;
 
-    private int progress;
-
     private String introduction;
 
 
     @Builder
-    public Investor(String title, String totalPrice, String sumPrice, int progress, String introduction) {
+    public Investor(String title, String totalPrice, String sumPrice, String introduction) {
         this.title = title;
         this.totalPrice = totalPrice;
         this.sumPrice = sumPrice;
-        this.progress = progress;
         this.introduction = introduction;
     }
 }
