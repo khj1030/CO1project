@@ -9,22 +9,18 @@ import axios from "axios";
 
 function Main() {
 
-  // useEffect(()=>{
-  //   axios.post('https://daeda.azurewebsites.net/api/user/signup',{
-  //     id: "abcd",
-  //     password: "abcd",
-  //     nickname: "abcd",
-  //     email: "abcd@gmail.com",
-  //     tel_number: "01012345678",
-  //     type: "FOUNDER"
-  //   })
-  //   .then((res)=>{
-  //     console.log(res)
-  //   })
-  //   .catch((err)=>{
-  //     console.log(err)
-  //   })
-  // },[])
+  /* useEffect(()=>{
+    axios.post('https://daeda.azurewebsites.net/api/user/login',{
+      id: "abcd",
+      password: "abcd"
+    })
+    .then((res)=>{
+      console.log(res)
+    })
+    .catch((err)=>{
+      console.log(err)
+    })
+  },[]) */
 
   return (
     <>
