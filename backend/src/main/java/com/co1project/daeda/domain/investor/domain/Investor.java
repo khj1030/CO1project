@@ -1,5 +1,6 @@
 package com.co1project.daeda.domain.investor.domain;
 
+import com.co1project.daeda.domain.user.domain.User;
 import com.co1project.daeda.global.jpa.BaseTimeEntity;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -19,9 +20,14 @@ public class Investor extends BaseTimeEntity {
 
     private String totalPrice;
 
-
     private String introduction;
 
+    @ManyToOne
+    private User user;
+
+    public void injectUser(User user) {
+        this.user =  user;
+    }
 
     @Builder
     public Investor(String title, String totalPrice, String introduction) {

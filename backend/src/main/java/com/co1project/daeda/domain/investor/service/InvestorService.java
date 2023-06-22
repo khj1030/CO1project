@@ -4,6 +4,7 @@ import com.co1project.daeda.domain.investor.domain.Investor;
 import com.co1project.daeda.domain.investor.domain.repository.InvestorRepository;
 import com.co1project.daeda.domain.investor.exception.InvestorNotFoundException;
 import com.co1project.daeda.domain.investor.prosentation.dto.request.InvestorRequest;
+import com.co1project.daeda.domain.user.domain.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -14,8 +15,9 @@ import java.util.List;
 public class InvestorService {
     private final InvestorRepository investorRepository;
 
-    public Investor create(InvestorRequest request) {
+    public Investor create(InvestorRequest request, User user) {
         Investor investor = request.toEntity();
+        investor.injectUser(user);
         return investorRepository.save(investor);
     }
 
