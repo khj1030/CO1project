@@ -124,7 +124,7 @@ export const NoticeText = styled.div`
     font-weight: 700;
 `
 // -------------------------------------------
-/* export const ChatRoom = styled.div`
+export const ChatRoom = styled.div`
     margin-top: 2.5rem;
 
     width: 42.375rem;
@@ -132,7 +132,7 @@ export const NoticeText = styled.div`
 
     border-radius: 20px;
     border: 1px solid #9A9A9D;
-` */
+`
 
 export const RightComponent = styled.div`
     width: 14.5625rem;
