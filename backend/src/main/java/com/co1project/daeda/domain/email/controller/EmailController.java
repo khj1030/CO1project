@@ -33,5 +33,4 @@ public class EmailController {
     public void sendMentoringEmail(@RequestBody EmailAuthRequestDto emailAuthRequestDto, @RequestAttribute User user) throws MessagingException, UnsupportedEncodingException {
         emailService.sendMentoringEmail(emailAuthRequestDto.getEmail(), user);
     }
-
 }
