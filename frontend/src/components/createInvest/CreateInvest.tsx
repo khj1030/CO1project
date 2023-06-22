@@ -11,7 +11,19 @@ const CreateInvest = () => {
   const [introduce, setIntroduce] = useState<string>("");
 
   const ServerConnect = async () => {
-    API.post("");
+    if (title === "" || price === "" || introduce === "") {
+      alert("정확한 값을 입력해주세요.");
+      return;
+    }
+    if (window.confirm("투자를 받으시겠습니까?")) {
+      await API.post(`api/investor/create`, {
+        title: title,
+        totalPrice: price,
+        introduction: introduce,
+      })
+        .then((e) => console.log(e))
+        .catch((e) => console.log(e));
+    }
   };
 
   return (
