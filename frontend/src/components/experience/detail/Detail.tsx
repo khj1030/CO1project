@@ -11,14 +11,20 @@ const Detail = () => {
   const { id } = useParams();
   const [detailState, setDetailValue] = useState<IExpValue>();
   const [commentArr, setCommentArr] = useState<IExpCommentValue[]>([]);
-  useEffect(() => {
-    API.get(`api/post/${id}`).then((e) => {
+
+  const ServerConnect = async () => {
+    await API.get(`api/post/${id}`).then((e) => {
       console.log(e);
       let copyDetail: IExpValue = e.data.post;
       let copyComment: IExpCommentValue[] = [...e.data.comments];
       setDetailValue(copyDetail);
       setCommentArr(copyComment);
     });
+  };
+
+  useEffect(() => {
+    ServerConnect();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <S.EntrieWrap>

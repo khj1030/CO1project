@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import * as S from "./Main.style";
 import Main1Pic from "../asset/Main1.svg";
 import Main2Pic from "../asset/Main2.svg";

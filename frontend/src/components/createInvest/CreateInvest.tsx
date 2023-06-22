@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import * as S from "../createMento/CreateMento.style";
-import FileQuestion from "../createMento/question/FileQuestion";
 import { useNavigate } from "react-router-dom";
 import Question from "../createMento/question/Question";
 import API from "../../util/API";
 
 const CreateInvest = () => {
   const navigate = useNavigate();
-  const [image, setImage] = useState<File>();
   const [title, setTitle] = useState<string>("");
   const [price, setPrice] = useState<string>("");
   const [introduce, setIntroduce] = useState<string>("");
