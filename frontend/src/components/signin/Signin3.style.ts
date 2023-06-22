@@ -66,6 +66,8 @@ export const CheckWrapper = styled.div`
 export const CheckBtn = styled.button`
     margin-top: 0.2rem;
 
+    display: block;
+
     width: 25rem;
     height: 2.5rem;
 
@@ -81,4 +83,20 @@ export const CheckBtn = styled.button`
 export const CheckIcon = styled.img`
     margin-left: 0.5rem;
     margin-right: 0.5rem;
+`
+
+export const NextBtn = styled.button`
+    margin-top: 10%;
+
+    width: 30%;
+    height: 7%;
+    
+    background: #386CF4;
+    border: none;
+    border-radius: 5px;
+
+    font-family: 'Pretendard';
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: #FFFFFF;
 `
