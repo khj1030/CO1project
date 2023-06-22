@@ -35,12 +35,10 @@ const Invest = () => {
   useEffect(() => {
     API.get("/api/investor")
       .then((res) => {
-        console.log(res);
         let serverData: IServerGetValue[] = res.data;
         let copy: Content[] = [];
         // eslint-disable-next-line array-callback-return
         serverData.map((val) => {
-          console.log(val);
           copy.push({
             title: val.title,
             introduction: val.introduction,
