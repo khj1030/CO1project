@@ -1,25 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import * as S from "./Detail.style";
 import Comment from "./comment/Comment";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import API from "../../../util/API";
+import { IExpCommentValue, IExpValue } from "../../../types/IExpValue";
 
 const Detail = () => {
   const navigate = useNavigate();
-  const markdown = "## ㅎㅇㅎㅇ";
+  const { id } = useParams();
+  const [detailState, setDetailValue] = useState<IExpValue>();
+  const [commentArr, setCommentArr] = useState<IExpCommentValue[]>([]);
+  useEffect(() => {
+    API.get(`api/post/${id}`).then((e) => {
+      console.log(e);
+      let copyDetail: IExpValue = e.data.post;
+      let copyComment: IExpCommentValue[] = [...e.data.comments];
+      setDetailValue(copyDetail);
+      setCommentArr(copyComment);
+    });
+  }, []);
   return (
     <S.EntrieWrap>
       <div>
         <S.GoBackButton onClick={() => navigate("/experience")}>
           {"< 뒤로가기"}
         </S.GoBackButton>
-        <S.Title>Title</S.Title>
+        <S.Title>{detailState?.title}</S.Title>
       </div>
       <S.ContentsWrap>
-        <p>조수현 - 2023. 06. 22</p>
+        <p>
+          {detailState?.user.nickname} - {detailState?.createDate}
+        </p>
       </S.ContentsWrap>
-      <ReactMarkdown>{markdown}</ReactMarkdown>
-      <Comment />
+      <ReactMarkdown>{detailState?.body || ""}</ReactMarkdown>
+      <Comment postid={id} commentArr={commentArr} />
     </S.EntrieWrap>
   );
 };
