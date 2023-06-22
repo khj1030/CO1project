@@ -1,35 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Title from "../common/form/Title";
 import * as S from "../../styles/Form.style";
 import ContentsBox from "./contentsBox/ContentsBox";
 import { useNavigate } from "react-router-dom";
+import API from "../../util/API";
 
 const Experience = () => {
   const navigate = useNavigate();
-  const [array, setArray] = useState<string[]>([
-    "d",
-    "d",
-    "d",
-    "",
-    "d",
-    "",
-    "d",
-    "d",
-    "",
-    "d",
-    "",
-    "",
-    "",
-    "d",
-    "",
-    "d",
-    "d",
-    "d",
-    "d",
-    "d",
-    "",
-    "d",
-  ]);
+  const [array, setArray] = useState<string[]>([]);
+
+  useEffect(() => {
+    API.get("api/post")
+      .then((e) => {
+        console.log(e);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }, []);
+
   return (
     <S.FormBody>
       <S.AddBtn onClick={() => navigate("/createexperience")}>

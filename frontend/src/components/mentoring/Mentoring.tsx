@@ -1,37 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Title from "../common/form/Title";
 import * as S from "../../styles/Form.style";
 import Modal from "./modal/Modal";
 import ContentsBox from "./contentsBox/ContentsBox";
 import { useNavigate } from "react-router-dom";
+import API from "../../util/API";
+import { IServerMentorListValue } from "../../types/IMentorValue";
 
 const Mentoring = () => {
   const navigate = useNavigate();
   const [isModalActive, setIsModalActive] = useState<boolean>(false);
-  const [array, setArray] = useState<string[]>([
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-  ]);
+  const [array, setArray] = useState<IServerMentorListValue[]>([]);
+  useEffect(() => {
+    API.get(`api/mentoring/all`)
+      .then((e) => {
+        console.log(e);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }, []);
   return (
     <>
       {isModalActive && (

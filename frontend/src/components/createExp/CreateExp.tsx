@@ -2,18 +2,30 @@ import React, { useState } from "react";
 import ReactMarkdown from "react-markdown";
 import * as S from "./CreateExp.style";
 import { useNavigate } from "react-router-dom";
+import API from "../../util/API";
 
 const CreateExp = () => {
   const [markdown, setMarkdown] = useState<string>("");
   const [title, setTitle] = useState<string>("");
   const naviagte = useNavigate();
 
-  const ServerConnnect = () => {
+  const ServerConnnect = async () => {
     if (window.confirm("게시물을 올리시겠습니까?")) {
       if (title === "" || markdown === "") {
         alert("제목 혹은 내용을 똑바로 입력해주세요.");
         return;
       }
+      await API.post(
+        "api/post/register",
+        { title: title, body: markdown },
+        {
+          headers: {
+            Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2ODc5OTQ2MjYsInVzZXJJZCI6MX0.LxMd3SglYwLarG-9cdFxmUekdNXAl7kqxXVWkaz80Lw`,
+          },
+        }
+      )
+        .then((e) => console.log(e))
+        .catch((e) => console.log(e));
       naviagte("/experience");
     }
   };
