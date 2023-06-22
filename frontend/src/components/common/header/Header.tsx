@@ -26,7 +26,7 @@ const Header = () => {
         <S.ContentsWrap>
           <span onClick={() => navigate("/experience")}>경험 공유</span>
           <span onClick={() => navigate("/mentor")}>멘토링</span>
-          <span>투자 모집</span>
+          <span onClick={()=>navigate("/invest")}>투자 모집</span>
           {isLogin ? 
           <>
             <span onClick={()=>{navigate('/mypage')}}>내정보</span>

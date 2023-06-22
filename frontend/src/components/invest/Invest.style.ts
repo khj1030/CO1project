@@ -25,9 +25,11 @@ export const ContentWrapper = styled.div`
 
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 `
 
 export const ContentBox = styled.div`
+    margin-bottom: 4.5rem;
     padding: 1rem;
 
     width: calc(18.125rem - 1rem);
