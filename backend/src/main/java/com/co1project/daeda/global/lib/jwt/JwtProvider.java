@@ -56,7 +56,8 @@ public class JwtProvider {
 
     public User validateToken(String token) {
 
-        Claims claims = Jwts.parser().setSigningKey(jwtProperties.getAccessKey().getBytes()).parseClaimsJws(token).getBody();
+        Claims claims = Jwts.parser().setSigningKey(jwtProperties.getAccessKey()).parseClaimsJws(token)
+                .getBody();
 
         return userRepository.findById(claims.get("userId", Long.class))
                 .orElseThrow(() -> InvalidTokenException.EXCEPTION);
