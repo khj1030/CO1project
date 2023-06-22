@@ -79,5 +79,30 @@ Linux 플랜은 자기가 원하는거 고르고 **다음: 배포**로 넘어간
     jwt.secret.refresh: ${{ secrets.REFRESH_KEY }}  jwt refresh 암호화
     ```
 14. github action이 성공하면 끝이다.
-15. ![스크린샷 2023-06-22 194905](https://github.com/hackersground-kr/CO1project/assets/104004650/2debcda7-6d9d-4260-918f-e02eda7a4f7a)
+![스크린샷 2023-06-22 194905](https://github.com/hackersground-kr/CO1project/assets/104004650/2debcda7-6d9d-4260-918f-e02eda7a4f7a)
+
+## 프론트엔드 시작하기
+
+1. git clone를 한다(브랜치는 frontendRelease).
+    
+    > git clone https://github.com/hackersground-kr/CO1project.git
+    > 
+2. 정적 웹앱을 생성한다. 
+![스크린샷 2023-06-22 195708](https://github.com/hackersground-kr/CO1project/assets/104004650/a90d0117-f43a-41a9-9c72-2bff4619fa3d)
+
+
+3. 권한이 있는 계정으로 
+호스팅 계획 : 표준:범용 프로덕션 인용
+배포 세부 정보 github
+조직은 내 repository에 했다면 자기 **github 이름**을 고르고, Organization를 골랐다면 **Organization 이름**을 골른다.
+리포지토리 clone 이름으로 하고
+분기는 frontendRelease선택하고
+빌드는 Reactm.
+앱 위치는 /frontend
+api 위치는 비우고
+출력 위치는 /frontend/build한다.
+
+5. github action이 성공하면 끝이다.
+
+![스크린샷 2023-06-22 194905](https://github.com/hackersground-kr/CO1project/assets/104004650/2debcda7-6d9d-4260-918f-e02eda7a4f7a)
 
